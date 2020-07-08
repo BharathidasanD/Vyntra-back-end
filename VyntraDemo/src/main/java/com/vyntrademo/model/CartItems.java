@@ -1,15 +1,14 @@
 package com.vyntrademo.model;
 
 import java.util.List;
+//not a entity just a model for view
 public class CartItems {
 	
-	private Double  totalPrice;
-	
-
-	private byte[] picByte;
-	
-	
-	private List<ShoppingCart> listCart;
+   private Double  totalPrice;
+   private byte[] picByte;
+   private String productName;
+   private String productDetail;
+   private Integer noOfProduct;
 
 
 	public Double getTotalPrice() {
@@ -32,14 +31,37 @@ public class CartItems {
 	}
 
 
-	public List<ShoppingCart> getListCart() {
-		return listCart;
+	public String getProductName() {
+		return productName;
 	}
 
 
-	public void setListCart(List<ShoppingCart> listCart) {
-		this.listCart = listCart;
+	public void setProductName(String productName) {
+		this.productName = productName;
 	}
+
+
+	public String getProductDetail() {
+		return productDetail;
+	}
+
+
+	public void setProductDetail(String productDetail) {
+		this.productDetail = productDetail;
+	}
+
+
+	public Integer getNoOfProduct() {
+		return noOfProduct;
+	}
+
+
+	public void setNoOfProduct(Integer noOfProduct) {
+		this.noOfProduct = noOfProduct;
+	}
+
+
+	
 
 
 	

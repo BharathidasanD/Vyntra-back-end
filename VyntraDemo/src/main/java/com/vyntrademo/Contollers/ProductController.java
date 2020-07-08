@@ -40,13 +40,13 @@ public class ProductController {
 		this.setBytes(file.getBytes());
 	}
 	@PostMapping("/addproduct")
-	public void createBook(@RequestBody Product new_product) throws IOException {
+	public void createProduct(@RequestBody Product new_product) throws IOException {
 		new_product.setPicByte(this.bytes);
 		productrepo.save(new_product);
 		this.bytes = null;
 	}
 	@PutMapping("/update")
-	public void updateBook(@RequestBody Product product) {
+	public void updateProduct(@RequestBody Product product) {
 		productrepo.save(product);
 	}
 

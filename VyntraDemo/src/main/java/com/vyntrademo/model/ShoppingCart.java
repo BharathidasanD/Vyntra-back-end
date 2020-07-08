@@ -1,15 +1,17 @@
 package com.vyntrademo.model;
 
 import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
 public class ShoppingCart {
-	
+	@Id
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
+	private Long cartId;
 	private Long productId;
 	private Long userId;
-	@Id
-	private Long cartId;
 	private int noOfProducts;
 	public Long getProductId() {
 		return productId;

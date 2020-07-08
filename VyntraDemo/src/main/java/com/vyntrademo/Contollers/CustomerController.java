@@ -31,8 +31,7 @@ public class CustomerController {
 	CustomerRepo customerrepo;
 	@Autowired
 	UserRepo userrepo;
-	@Autowired
-	ShoppingCartRepo shoppingcartrepo;
+	
 	
 	//return list of Customers.........
 	@GetMapping("/listusers")
@@ -90,41 +89,12 @@ public class CustomerController {
     	return "not a user";
     }*/
     //return all users.......
-    @RequestMapping("/userde")
+    @RequestMapping("/userdetails")
     public List<User> newUser()
     {
     	return userrepo.findAll();
     }
-    //add products to cart
-    @PostMapping("/addcart")
-    public String addCart(@RequestBody ShoppingCart shoppingcart) throws DataIntegrityViolationException{
-    	try{
-    		
-    		shoppingcartrepo.save(shoppingcart);
-    	}
-    	catch(DataIntegrityViolationException e){
-    		 return "Something went wrong!....";
-    	}
-    	
-    	return " registered successfully.";
-    }
-   // get products from cart
-    @GetMapping("/listcartdetails")
-	public List<CartItems> listCartDetails(){
-    	CartItems cartitems=new CartItems();
-    	ArrayList<CartItems> al=new ArrayList<>();
-		List<ShoppingCart> list_of_cart= shoppingcartrepo.findByuserId((long) 1);
-		//byte picturebyte[]=shoppingcartrepo.;
-		cartitems.setListCart(list_of_cart);
-		cartitems.setPicByte(null);
-		cartitems.setTotalPrice(100.00);
-		//cartitems.setPicByte(picturebyte);
-		 al.add(cartitems);
-		 return al;
-	
-		
-		
-		
-	}
+    
+  
     
 }
