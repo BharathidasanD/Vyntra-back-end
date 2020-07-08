@@ -12,7 +12,7 @@ public class CheckController {
 		
 		
 		System.out.print("hello world");
-		return "hii";
+		return "hii how are you?";
 	}
 
 }
