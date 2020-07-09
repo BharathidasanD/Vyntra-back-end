@@ -7,6 +7,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.dao.DataIntegrityViolationException;
 import org.springframework.web.bind.annotation.CrossOrigin;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -40,11 +41,11 @@ public class CartController {
     	return " registered successfully.";
     }
 	 // get products from cart
-    @GetMapping("/listcartdetails")
-	public List<CartItems> listCartDetails(){
-    	
+    @GetMapping("/listcartdetails/{userid}")
+	public List<CartItems> listCartDetails(@PathVariable("userid") Long userId){
+    	System.out.print(userId);
     	ArrayList<CartItems> al=new ArrayList<>();
-		List<ShoppingCart> list_of_cart= shoppingcartrepo.findByuserId((long) 2);
+		List<ShoppingCart> list_of_cart= shoppingcartrepo.findByuserId(userId);
 		System.out.print(list_of_cart.size());
 		for(ShoppingCart shoppingCart:list_of_cart) {
 			CartItems cartitems=new CartItems();
